@@ -11,11 +11,9 @@ build_ubuntu:
     paths:
       - build
   script:
+    - lscpu && free -h && df -h
     - cat /etc/*release
-    - export DEBIAN_FRONTEND=noninteractive
-    - apt-get update 
-    - apt-get install -y python3-pip python3 ninja-build gcc make cmake 
-    - pip install conan
+    - bash ci/prepare_ubuntu20.sh
     - make configure
     - make build
     - make run
