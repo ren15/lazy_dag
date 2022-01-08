@@ -17,3 +17,5 @@ configure:
 build:
 	cmake --build ${BUILD_DIR} -j
 	
+run: 
+	${BUILD_DIR}/et-bench

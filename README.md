@@ -10,6 +10,9 @@ between creating DAG with
 
 - gcc
 - clang
+- clang-format
+- clang-tidy
+- cppcheck
 
 - CMake
 - conan

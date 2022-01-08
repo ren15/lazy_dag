@@ -4,6 +4,8 @@
 dist
 build
 
+benchmark/
+
 ## Editor directories and files
 .idea
 .vscode
