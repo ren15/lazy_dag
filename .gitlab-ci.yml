@@ -11,6 +11,7 @@ build_ubuntu:
     paths:
       - build
   script:
+    - echo $SHELL
     - lscpu && free -h && df -h
     - cat /etc/*release
     - bash ci/prepare_ubuntu20.sh
