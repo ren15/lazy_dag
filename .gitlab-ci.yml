@@ -1,0 +1,19 @@
+stages:          
+  - build
+
+build_ubuntu:       
+  image: ubuntu:20.04
+  stage: build
+  timeout: 30 minutes
+  artifacts:
+    paths:
+      - build
+  script:
+    - cat /etc/*release
+    - export DEBIAN_FRONTEND=noninteractive
+    - apt-get update 
+    - apt-get install -y python3-pip python3 ninja-build gcc make cmake 
+    - pip install conan
+    - make configure
+    - make build
+    - make run
