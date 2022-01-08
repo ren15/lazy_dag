@@ -1,3 +1,6 @@
+set -x
+set -e
+
 git clone https://github.com/google/benchmark.git
 cd benchmark
 cmake -E make_directory "build"
