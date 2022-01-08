@@ -1,7 +1,7 @@
 .PHONY: $(MAKECMDGOALS)
 
 BUILD_DIR=build
-SOURCE_DIR=.
+SOURCE_DIR=${PWD}
 
 help:
 	echo "Check Makefile"
@@ -19,3 +19,6 @@ build:
 	
 run: 
 	${BUILD_DIR}/et-bench
+
+clean:
+	rm -rf ${BUILD_DIR}

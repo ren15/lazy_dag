@@ -18,3 +18,9 @@ between creating DAG with
 - conan
 
 - google benchmark
+
+## Status
+
+Google benchmark from conan makes seg fault,
+trying git clone and include it by CMakeLists
+

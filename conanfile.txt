@@ -1,6 +1,5 @@
 [requires]
 fmt/8.0.1
-benchmark/1.6.0
 
 [generators]
 cmake
