@@ -5,6 +5,8 @@ build_ubuntu:
   image: ubuntu:20.04
   stage: build
   timeout: 30 minutes
+  tags:
+    - gfw_free
   artifacts:
     paths:
       - build
