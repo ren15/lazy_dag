@@ -1,0 +1,35 @@
+.ipynb*
+.clangd
+.DS_Store
+dist
+build
+
+## Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.local
+
+
+**/cmake-build-*
+**/*.egg-info
+**/*.pyc
+**/__pycache__
+**/.pytest_cache
+
+compile_commands.json
+
+*out.txt
+output.txt
+.cache
+
+## disable data
+# **/*.csv
+# **/*.pkl
+# **/*.pickle
+# **/*.pk
+
+*.con
