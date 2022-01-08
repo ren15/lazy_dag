@@ -9,8 +9,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_CXX_FLAGS}")
 
 include(cmake/support_libs.cmake)
 
+file(GLOB srcs src/*.cpp)
+
 add_executable(et-bench 
-src/main.cpp
+${srcs}
 )
 
 target_include_directories(et-bench 
