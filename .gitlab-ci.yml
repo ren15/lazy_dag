@@ -16,6 +16,7 @@ build_ubuntu:
     - apt-get update 
     - apt-get install -y python3-pip python3 ninja-build gcc make cmake 
     - pip install conan
+    - bash ci/setup_gbench.sh
     - make configure
     - make build
     - make run
