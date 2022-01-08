@@ -1,7 +1,7 @@
 set -x
 set -e
 
-git clone https://github.com/google/benchmark.git
+git clone https://github.com/google/benchmark.git || true
 cd benchmark
 cmake -E make_directory "build"
 cmake -S ${PWD} -B "build" \
