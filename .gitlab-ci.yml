@@ -1,0 +1,20 @@
+stages:          
+  - build
+
+build_ubuntu:       
+  image: ubuntu:20.04
+  stage: build
+  timeout: 30 minutes
+  tags:
+    - gfw_free
+  artifacts:
+    paths:
+      - build
+  script:
+    - echo $SHELL
+    - lscpu && free -h && df -h
+    - cat /etc/*release
+    - bash ci/prepare_ubuntu20.sh
+    - make configure
+    - make build
+    - make run

@@ -4,16 +4,23 @@ project(expression_template_benchmark)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-IF(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
-    INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-    conan_basic_setup(NO_OUTPUT_DIRS)
-ENDIF()
+set(CMAKE_C_FLAGS "-O3 -ffast-math -march=native ${CMAKE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_CXX_FLAGS}")
 
+include(cmake/support_libs.cmake)
+
+file(GLOB srcs src/*.cpp)
 
 add_executable(et-bench 
-src/main.cpp
+${srcs}
+)
+
+target_include_directories(et-bench 
+BEFORE PRIVATE "${BENCHMARK_FOLDER}/include"
 )
 
 target_link_libraries(et-bench
 ${CONAN_LIBS}
+${BENCHMARK_LIBRARY}
+pthread
 )
