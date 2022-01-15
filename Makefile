@@ -15,7 +15,7 @@ configure:
 
 	cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
 		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
-		-DCMAKE_BUILD_TYPE=Debug \
+		-DCMAKE_BUILD_TYPE=Release \
 		-G Ninja
 
 	## Make clangd work	
@@ -26,7 +26,7 @@ build:
 	cmake --build ${BUILD_DIR} -j
 	
 run: 
-	${BUILD_DIR}/et-bench
+	${BUILD_DIR}/bin/mathop_bench
 
 clean:
 	rm -rf ${BUILD_DIR}
