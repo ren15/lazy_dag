@@ -17,4 +17,3 @@ build_ubuntu:
     - bash ci/prepare_ubuntu20.sh
     - make configure
     - make build
-    - make run

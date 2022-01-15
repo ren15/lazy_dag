@@ -6,18 +6,8 @@ include(cmake/support_libs.cmake)
 
 # --------------------------------------
 
-file(GLOB srcs src/*.cpp)
 
-add_executable(et-bench 
-${srcs}
-)
+add_subdirectory(src/math_op_bench)
 
-target_include_directories(et-bench 
-BEFORE PRIVATE "${BENCHMARK_FOLDER}/include"
-)
+add_subdirectory(src/AAD)
 
-target_link_libraries(et-bench
-${CONAN_LIBS}
-${BENCHMARK_LIBRARY}
-pthread
-)

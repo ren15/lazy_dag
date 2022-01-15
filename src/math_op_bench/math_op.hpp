@@ -9,4 +9,4 @@ double log(double a, double b);
 double exp(double a, double b);
 double pow(double a, double b);
 
-}
+} // namespace expesssion_template
