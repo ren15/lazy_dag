@@ -1,5 +1,4 @@
-set -x
-set -e
+set -xe
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update 
