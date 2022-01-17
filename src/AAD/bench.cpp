@@ -1,3 +1,4 @@
+#include "dag_handwritten.hpp"
 #include "dag_pointer.hpp"
 #include "dag_template.hpp"
 
@@ -30,6 +31,24 @@ static void BM_template(benchmark::State& state)
 }
 BENCHMARK(BM_template);
 
+static void BM_handwritten(benchmark::State& state)
+{
+    auto v = std::vector<double>();
+    for (int i = 0; i < 5; i++) {
+        v.push_back(i + 1);
+    }
+
+    auto x = std::array<double, 5>();
+    for (int i = 0; i < 5; i++) {
+        x[i] = v[i];
+    }
+
+    for (auto _ : state) {
+        benchmark::DoNotOptimize(DAG_handwritten::Number::getVal(x));
+    }
+}
+BENCHMARK(BM_handwritten);
+
 static void BM_assert_equal(benchmark::State& state)
 {
 
@@ -45,7 +64,13 @@ static void BM_assert_equal(benchmark::State& state)
         return y.evaluate();
     };
 
+    auto handwritten_result = []() {
+        std::array x = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+        return DAG_handwritten::Number::getVal(x);
+    };
+
     assert(template_result == pointer_result);
+    assert(handwritten_result == pointer_result);
 
     for (auto _ : state) {
     }

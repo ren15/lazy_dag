@@ -21,7 +21,9 @@ between creating DAG with
 - google benchmark
 
 ## Status
+Benchmark AAD examples in the book.
 
-Google benchmark from conan makes seg fault,
-trying git clone and include it by CMakeLists
+Write benchmark in Rust
+
+
 
