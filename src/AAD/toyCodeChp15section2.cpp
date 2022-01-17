@@ -1,8 +1,8 @@
 /*
-	Toy code contained in chapter 15, section 2 (pages 512 to 520). 
+        Toy code contained in chapter 15, section 2 (pages 512 to 520).
 
-	The code is modified slightly to hold the adjoint in the class Number within a shared pointer to ensure that 
-	all copies of Number hold the same adjoint (thereby allowing the adjoints to be updated within x1 and x2).
+        The code is modified slightly to hold the adjoint in the class Number within a shared pointer to ensure that
+        all copies of Number hold the same adjoint (thereby allowing the adjoints to be updated within x1 and x2).
 */
 #include <cmath>
 #include <iostream>

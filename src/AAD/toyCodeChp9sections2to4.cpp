@@ -1,9 +1,9 @@
 /*
-	Toy code contained in chapter 9, sections 2, 3 and 4 (pages 328 to 349).
+        Toy code contained in chapter 9, sections 2, 3 and 4 (pages 328 to 349).
 
-	For VS15, the code in the book compiles and reproduces the results described. 
-	VS17 has issues with not accepting directly created lambdas into non const refs, so the code below is modified slightly 
-	to work in both VS15 and VS17.
+        For VS15, the code in the book compiles and reproduces the results described.
+        VS17 has issues with not accepting directly created lambdas into non const refs, so the code below is modified slightly
+        to work in both VS15 and VS17.
 */
 #include <cmath>
 #include <iostream>
@@ -303,7 +303,7 @@ public:
     {
         myNode->resetProcessed();
         // The next line is the original code that works in VS15
-        //myNode->postOrder([](Node& n) {n.evaluate(); });
+        // myNode->postOrder([](Node& n) {n.evaluate(); });
         // The next two lines work in both VS15 and VS17
         auto lam = [order = 0](Node& n) mutable { n.evaluate(); };
         myNode->postOrder(lam);
@@ -314,7 +314,7 @@ public:
     {
         myNode->resetProcessed();
         // The next line is the original code that works in VS15
-        //myNode->postOrder([order = 0](Node& n) mutable {n.setOrder(++order); });
+        // myNode->postOrder([order = 0](Node& n) mutable {n.setOrder(++order); });
         // The next two lines work in both VS15 and VS17
         auto lam = [order = 0](Node& n) mutable { n.setOrder(++order); };
         myNode->postOrder(lam);
@@ -324,7 +324,7 @@ public:
     {
         myNode->resetProcessed();
         // The next line is the original code that works in VS15
-        //myNode->postOrder([](Node& n) {cout << "Processed node " << n.order() << " result " << n.result() << endl; });
+        // myNode->postOrder([](Node& n) {cout << "Processed node " << n.order() << " result " << n.result() << endl; });
         // The next two lines work in both VS15 and VS17
         auto lam = [order = 0](Node& n) mutable { cout << "Processed node " << n.order() << " result " << n.result() << endl; };
         myNode->postOrder(lam);
@@ -334,7 +334,7 @@ public:
     {
         myNode->resetProcessed();
         // The next line is the original code that works in VS15
-        //myNode->postOrder([](Node& n) {n.logInstruction(); });
+        // myNode->postOrder([](Node& n) {n.logInstruction(); });
         // The next two lines work in both VS15 and VS17
         auto lam = [order = 0](Node& n) mutable { n.logInstruction(); };
         myNode->postOrder(lam);
@@ -353,17 +353,17 @@ public:
         myNode->adjoint() = 1.0;
         // Preorder traversal code
         // The next line is the original code that works in VS15
-        //myNode->preOrder([](Node& n) {n.propagateAdjoint(); });
+        // myNode->preOrder([](Node& n) {n.propagateAdjoint(); });
         // The next two lines work in both VS15 and VS17
         auto lam = [](Node& n) { n.propagateAdjoint(); };
         myNode->preOrder(lam);
 
         // Breadth-first traversal code
         // The next line is the original code that works in VS15
-        //myNode->breadthFirst([](Node& n) {n.propagateAdjoint(); });
+        // myNode->breadthFirst([](Node& n) {n.propagateAdjoint(); });
         // The next two lines work in both VS15 and VS17
-        //auto lam = [](Node& n) {n.propagateAdjoint(); };
-        //myNode->breadthFirst(lam);
+        // auto lam = [](Node& n) {n.propagateAdjoint(); };
+        // myNode->breadthFirst(lam);
     }
 };
 
@@ -384,7 +384,7 @@ shared_ptr<Node> log(Number arg)
 
 /******************************************************************************************************************/
 /*
-	Templated calculation code (see section 9.2, page 331)
+        Templated calculation code (see section 9.2, page 331)
 */
 template <class T>
 T f(T x[5])
@@ -417,14 +417,14 @@ int main()
 
     // Uncomment the following code to evaluate the DAG with a different input (see page 336)
     /*
-	// Change x0 on the DAG
-	x[0].setVal(2.5);
+        // Change x0 on the DAG
+        x[0].setVal(2.5);
 
-	// Evaluate on the DAG again
-	cout << y.evaluate() << endl; // 2769.76
+        // Evaluate on the DAG again
+        cout << y.evaluate() << endl; // 2769.76
 
-	// Log results again
-	y.logResults();*/
+        // Log results again
+        y.logResults();*/
 
     y.propagateAdjoints();
 

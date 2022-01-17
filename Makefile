@@ -28,5 +28,8 @@ build:
 run: 
 	${BUILD_DIR}/bin/mathop_bench
 
+git_clone_AAD:
+	git clone https://github.com/asavine/CompFinance.git
+
 clean:
 	rm -rf ${BUILD_DIR}
