@@ -18,4 +18,4 @@ build_debian:
     - make configure
     - make build
     - make run
-    - cd et_rust && cargo bench
+    - cd et_rust && cargo bench | grep time

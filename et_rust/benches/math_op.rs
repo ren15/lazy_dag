@@ -37,3 +37,11 @@ pub fn exp(a: f64) -> f64 {
 pub fn log(a: f64) -> f64 {
     a.ln()
 }
+
+#[inline]
+pub fn f_dag(x: [f64; 5]) -> f64 {
+    let y1 = x[2] * (5.0 * x[0] + x[1]);
+    let y2 = log(y1);
+    let y = (y1 + x[3] * y2) * (y1 + y2);
+    y
+}

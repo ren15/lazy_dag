@@ -22,18 +22,18 @@ fn bench_signal_repo_static(c: &mut Criterion) {
         })
     });
 
-    c.bench_function("add_two", |b| {
-        b.iter(|| {
-            black_box(math_op::add(black_box(p1), black_box(p2)));
-            black_box(math_op::add(black_box(p1), black_box(p2)));
-        })
-    });
+    // c.bench_function("add_two", |b| {
+    //     b.iter(|| {
+    //         black_box(math_op::add(black_box(p1), black_box(p2)));
+    //         black_box(math_op::add(black_box(p1), black_box(p2)));
+    //     })
+    // });
 
-    c.bench_function("add_two_combined", |b| {
-        b.iter(|| {
-            black_box(math_op::add_two(black_box([p1, p2]), black_box([p2, p1])));
-        })
-    });
+    // c.bench_function("add_two_combined", |b| {
+    //     b.iter(|| {
+    //         black_box(math_op::add_two(black_box([p1, p2]), black_box([p2, p1])));
+    //     })
+    // });
 
     c.bench_function("minus", |b| {
         b.iter(|| {
@@ -53,11 +53,11 @@ fn bench_signal_repo_static(c: &mut Criterion) {
         })
     });
 
-    c.bench_function("exp", |b| {
-        b.iter(|| {
-            black_box(math_op::exp(black_box(p1)));
-        })
-    });
+    // c.bench_function("exp", |b| {
+    //     b.iter(|| {
+    //         black_box(math_op::exp(black_box(p1)));
+    //     })
+    // });
 
     c.bench_function("log", |b| {
         b.iter(|| {
@@ -65,9 +65,26 @@ fn bench_signal_repo_static(c: &mut Criterion) {
         })
     });
 
-    c.bench_function("power", |b| {
+    // c.bench_function("power", |b| {
+    //     b.iter(|| {
+    //         black_box(math_op::power(black_box(p1), black_box(p2)));
+    //     })
+    // });
+
+    let mut x: [f64; 5] = [0.0; 5];
+    for i in x.iter_mut() {
+        *i = rng.gen();
+    }
+    c.bench_function("f_dag", |b| {
         b.iter(|| {
-            black_box(math_op::power(black_box(p1), black_box(p2)));
+            black_box(math_op::f_dag(black_box(x)));
+        })
+    });
+
+    let x = [1.0, 2.0, 3.0, 4.0, 5.0];
+    c.bench_function("f_dag_compile", |b| {
+        b.iter(|| {
+            black_box(math_op::f_dag(x));
         })
     });
 }
