@@ -14,7 +14,7 @@ build_debian:
     - echo $SHELL
     - lscpu && free -h && df -h
     - cat /etc/*release
-    - bash ci/prepare_ubuntu20.sh
+    - bash ci/prepare_deb.sh
     - make configure
     - make build
     - make run
