@@ -1,8 +1,8 @@
 stages:          
   - build
 
-build_ubuntu:       
-  image: ubuntu:20.04
+build_debian:       
+  image: rust:1.58.0
   stage: build
   timeout: 30 minutes
   tags:
@@ -18,3 +18,4 @@ build_ubuntu:
     - make configure
     - make build
     - make run
+    - cd et_rust && cargo bench
