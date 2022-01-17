@@ -7,6 +7,8 @@
 using namespace std;
 
 /******************************************************************************************************************/
+namespace DAG_pointer {
+
 class Node {
 protected:
     vector<shared_ptr<Node>> myArguments;
@@ -386,4 +388,5 @@ T f(T x[5])
     T y2 = log(y1);
     T y = (y1 + x[3] * y2) * (y1 + y2);
     return y;
+}
 }

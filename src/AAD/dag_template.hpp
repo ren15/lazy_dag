@@ -7,6 +7,8 @@
 
 using namespace std;
 
+namespace DAG_template {
+
 class Node {
 protected:
     vector<Node*> myArguments;
@@ -192,4 +194,5 @@ T f(T x[5])
     auto y2 = log(y1);
     auto y = (y1 + x[3] * y2) * (y1 + y2);
     return y;
+}
 }

@@ -3,6 +3,7 @@
 */
 
 #include "dag_template.hpp"
+using namespace DAG_template;
 
 int main()
 {
