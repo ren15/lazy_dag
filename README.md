@@ -25,5 +25,7 @@ Benchmark AAD examples in the book.
 
 Write benchmark in Rust
 
+TODO: write in cpp20 ranges / range-v3.
+
 
 
