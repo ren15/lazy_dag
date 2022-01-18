@@ -40,7 +40,7 @@ pub fn log(a: f64) -> f64 {
 
 #[inline]
 pub fn f_dag_full(x: [f64; 5]) -> f64 {
-    let y1 = get_y1(x);
+    let y1 = x[2] * (5.0 * x[0] + x[1]);
     let y2 = log(y1);
     let y = (y1 + x[3] * y2) * (y1 + y2);
     y
