@@ -28,6 +28,7 @@ build:
 run: 
 	${BUILD_DIR}/bin/mathop_bench
 	${BUILD_DIR}/bin/dag_bench
+	${BUILD_DIR}/bin/dag_range
 
 git_clone_AAD:
 	git clone https://github.com/asavine/CompFinance.git

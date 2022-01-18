@@ -25,3 +25,11 @@ ${CONAN_LIBS}
 ${BENCHMARK_LIBRARY}
 pthread
 )
+
+add_executable(dag_range
+dag_range.cpp
+)
+
+target_link_libraries(dag_bench
+${CONAN_LIBS}
+)
