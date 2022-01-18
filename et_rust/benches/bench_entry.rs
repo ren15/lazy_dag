@@ -75,16 +75,16 @@ fn bench_signal_repo_static(c: &mut Criterion) {
     for i in x.iter_mut() {
         *i = rng.gen();
     }
-    c.bench_function("f_dag", |b| {
+    c.bench_function("f_dag_full", |b| {
         b.iter(|| {
-            black_box(math_op::f_dag(black_box(x)));
+            black_box(math_op::f_dag_full(black_box(x)));
         })
     });
 
     let x = [1.0, 2.0, 3.0, 4.0, 5.0];
     c.bench_function("f_dag_compile", |b| {
         b.iter(|| {
-            black_box(math_op::f_dag(x));
+            black_box(math_op::f_dag(black_box(x)));
         })
     });
 }
