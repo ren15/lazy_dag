@@ -8,19 +8,49 @@
 
 int main()
 {
-    using ranges::single_view;
-    using ranges::views::transform;
-    using ranges::views::zip_with;
+    {
+        using ranges::views::transform;
+        std::vector<int> elements = { -1, 0, 1 };
+        auto add_one_view = elements | transform([](int _next) { return _next + 1; });
 
-    int left = 1;
-    double right = 40.0;
-    auto expr = zip_with(std::plus<> {}, single_view { left }, single_view { right });
-    // print [41]
-    std::cout << expr << std::endl;
+        std::cout << add_one_view;
+    }
+    {
+        using ranges::single_view;
+        using ranges::views::transform;
+        using ranges::views::zip_with;
 
-    short next_value = 1;
-    auto expr2 = zip_with(std::plus<> {}, expr, single_view { next_value });
+        int left = 1;
+        double right = 40.0;
+        auto expr = zip_with(std::plus<> {}, single_view { left }, single_view { right });
+        // print [41]
+        std::cout << expr << std::endl;
 
-    // print [42]
-    std::cout << expr2 << std::endl;
+        short next_value = 1;
+        auto expr2 = zip_with(std::plus<> {}, expr, single_view { next_value });
+
+        // print [42]
+        std::cout << expr2 << std::endl;
+    }
+    {
+        // row-major
+        using Matrix = std::vector<std::vector<double>>;
+
+        // column vector
+        using Vector = std::vector<double>;
+
+        using ranges::inner_product;
+        using ranges::views::transform;
+
+        Matrix A = { { 1, 2, 3 },
+            { 4, 5, 6 } };
+        Vector x = { 7, 8, 9 };
+
+        auto product = A | transform([&x](const auto& row) {
+            return inner_product(row, x, 0.0);
+        });
+
+        // print [50,122]
+        std::cout << product;
+    }
 }
