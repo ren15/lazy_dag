@@ -1,5 +1,7 @@
 #pragma once
 
+#include<boost/proto/proto.hpp>
+
 #include <iostream>
 #include <vector>
 #include <cassert>

@@ -18,6 +18,9 @@ Check vec.hpp
 
 2. Use ranges to implement operator* for Vector<T,N> as lazy evaluation.
 
+
+# Check boost.proto
+
 */
 
 #include "vec.hpp"
