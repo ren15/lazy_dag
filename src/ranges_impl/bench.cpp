@@ -1,6 +1,7 @@
 #include "vec.hpp"
 
 #include <benchmark/benchmark.h>
+#include <cstddef>
 #include <fmt/core.h>
 #include <range/v3/all.hpp>
 
@@ -60,6 +61,22 @@ static void BM_linear(benchmark::State& state)
     }
 }
 BENCHMARK(BM_linear);
+
+static void BM_linear_hand(benchmark::State& state)
+{
+    auto v2 = RangeImpl::Vec<long long>::iota(1LL, 100001LL);
+    auto v3 = RangeImpl::Vec<long long>::iota(1LL, 100001LL);
+
+    for (auto _ : state) {
+        auto temp = RangeImpl::Vec<long long>::zeros(v2.size());
+        for (size_t i = 0; i < v2.size(); i++) {
+            temp[i] = v2[i] * v3[i] + 3LL * v2[i] + 4LL + v3[i];
+        }
+
+        benchmark::DoNotOptimize(temp);
+    }
+}
+BENCHMARK(BM_linear_hand);
 
 static void BM_sum(benchmark::State& state)
 {
