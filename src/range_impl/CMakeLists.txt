@@ -5,9 +5,11 @@
 # pthread
 # )
 
-add_executable(range_impl_1
-range_impl_1.cpp
+add_executable(ranges_impl_1
+main.cpp
+ranges_example.cpp
 )
-target_link_libraries(range_impl_1
+
+target_link_libraries(ranges_impl_1
 ${CONAN_LIBS}
 )
