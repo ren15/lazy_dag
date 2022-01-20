@@ -31,14 +31,15 @@ Check vec.hpp
 
 void ranges_example();
 
-
 void vec_usage()
 {
-    auto v2 = RangeImpl::Vec<int>::iota(20L, 30L);
-    v2.print();
+    auto v2 = RangeImpl::Vec<long long>::iota(1LL, 1001LL);
+    fmt::print("v2.sum() = {}\n", v2.sum());
+    auto v3 = v2 + 1LL;
+    fmt::print("v3.sum() = {}\n", v3.sum());
 }
 
-int main()
+auto main() -> int
 {
     // ranges_example();
     vec_usage();

@@ -14,5 +14,5 @@ add_subdirectory(src/math_op_bench)
 
 add_subdirectory(src/AAD)
 
-add_subdirectory(src/range_impl)
+add_subdirectory(src/ranges_impl)
 

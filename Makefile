@@ -11,7 +11,7 @@ configure:
 
 	cmake -E make_directory ${BUILD_DIR}
 
-	conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR}
+	conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
 
 	cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
 		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
@@ -29,7 +29,7 @@ run:
 	${BUILD_DIR}/bin/mathop_bench
 	${BUILD_DIR}/bin/dag_bench
 	${BUILD_DIR}/bin/dag_range
-	${BUILD_DIR}/bin/range_impl_1
+	${BUILD_DIR}/bin/ranges_impl_1
 
 git_clone_AAD:
 	git clone https://github.com/asavine/CompFinance.git
