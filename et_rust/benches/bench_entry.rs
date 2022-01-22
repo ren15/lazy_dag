@@ -7,29 +7,29 @@ mod heavy_math_op;
 
 fn bench_signal_repo_static(c: &mut Criterion) {
     // let test_md = signal::test_util::get_test_static_md();
-    // let mut rng = rand::thread_rng();
+    let mut rng = rand::thread_rng();
 
-    // let p1 = rng.gen();
-    // let p2 = rng.gen();
+    let p1 = rng.gen();
+    let p2 = rng.gen();
     // let p1 = 10.64734634f64;
     // let p2 = 0.126121225f64;
 
-    // c.bench_function("empty", |b| {
-    //     b.iter(|| {});
-    // });
+    c.bench_function("empty", |b| {
+        b.iter(|| {});
+    });
 
-    // c.bench_function("add", |b| {
-    //     b.iter(|| {
-    //         black_box(math_op::add(black_box(p1), black_box(p2)));
-    //     })
-    // });
+    c.bench_function("add", |b| {
+        b.iter(|| {
+            black_box(math_op::add(black_box(p1), black_box(p2)));
+        })
+    });
 
-    // c.bench_function("add_two", |b| {
-    //     b.iter(|| {
-    //         black_box(math_op::add(black_box(p1), black_box(p2)));
-    //         black_box(math_op::add(black_box(p1), black_box(p2)));
-    //     })
-    // });
+    c.bench_function("add_two", |b| {
+        b.iter(|| {
+            black_box(math_op::add(black_box(p1), black_box(p2)));
+            black_box(math_op::add(black_box(p1), black_box(p2)));
+        })
+    });
 
     // c.bench_function("add_two_combined", |b| {
     //     b.iter(|| {

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-namespace DAG_template {
+namespace DAG_tape {
 
 class Node {
 protected:

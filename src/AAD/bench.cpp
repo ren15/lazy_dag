@@ -1,6 +1,6 @@
 #include "dag_handwritten.hpp"
 #include "dag_pointer.hpp"
-#include "dag_template.hpp"
+#include "dag_tape.hpp"
 
 #include <benchmark/benchmark.h>
 
@@ -21,9 +21,11 @@ BENCHMARK(BM_pointer);
 
 static void BM_template(benchmark::State& state)
 {
-    using DAG_template::Number;
+    using DAG_tape::f;
+    using DAG_tape::Number;
+
     Number x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
-    Number y = DAG_template::f(x);
+    Number y = f(x);
 
     for (auto _ : state) {
         benchmark::DoNotOptimize(y.getVal());
@@ -53,8 +55,10 @@ static void BM_assert_equal(benchmark::State& state)
 {
 
     auto template_result = []() {
-        DAG_template::Number x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
-        DAG_template::Number y = DAG_template::f(x);
+        using DAG_tape::Number;
+        using DAG_tape::f;
+        Number x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+        Number y = f(x);
         return y.getVal();
     };
 

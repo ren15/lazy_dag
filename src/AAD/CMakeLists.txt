@@ -4,6 +4,10 @@ add_executable(dag_pointer
 dag_pointer.cpp
 )
 
+add_executable(dag_tape
+dag_tape.cpp
+)
+
 add_executable(dag_template
 dag_template.cpp
 )
