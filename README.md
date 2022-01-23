@@ -67,3 +67,9 @@ https://godbolt.org/z/sMPvEbW3j
 
 
     
+## 
+Tensorflow uses lazy evaluation
+
+https://solegaonkar.github.io/tfLazyExecution.html
+
+https://www.tensorflow.org/guide/basics
