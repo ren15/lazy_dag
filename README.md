@@ -6,39 +6,23 @@ between creating DAG with
 - Use virtual inheritence  
 - Use expression template   
     https://github.com/asavine/CompFinance/tree/AADbook
+- Lazy string concatenation
+    Functional Programming in C++
+
 
 ## tools to use 
 
-- gcc
-- clang
-- clang-format
-- clang-tidy
-- cppcheck
+``gcc, clang, clang-format, clang-tidy, cppcheck, CMake, conan, google benchmark``
 
-- CMake
-- conan
-
-- google benchmark
-
-## Status
-Benchmark AAD examples in the book.
-
-Write benchmark in Rust
-
-TODO: write in cpp20 ranges / range-v3.
-
-
-
-
-## Worklog
+## C++
 
 To illustrate lazy evaluation,
 
+```c++
 Vector<int,10000> v;
-
 ans = v * 10 * 20 * 30 * 40;
-
-If vector * scaler takes 1 ms,  
+```
+If `vector * scaler` takes 1 ms,  
 the naive approach takes 4 ms,  
 but the lazy approach takes only 1 ms.  
 
@@ -62,14 +46,13 @@ https://godbolt.org/z/sMPvEbW3j
 ### Use boost.yap instead. 
     https://www.boost.org/doc/libs/1_74_0/doc/html/boost_yap/manual.html
 
-#### Then implement it in rust.
-    https://stackoverflow.com/questions/70139404/expression-template-implementation-in-rust-like-in-boostyap
-
-
     
-## 
-Tensorflow uses lazy evaluation
+### Tensorflow uses lazy evaluation
 
 https://solegaonkar.github.io/tfLazyExecution.html
 
 https://www.tensorflow.org/guide/basics
+
+
+## Expression template in Rust
+    https://stackoverflow.com/questions/70139404/expression-template-implementation-in-rust-like-in-boostyap
