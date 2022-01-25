@@ -56,3 +56,5 @@ https://www.tensorflow.org/guide/basics
 
 ## Expression template in Rust
     https://stackoverflow.com/questions/70139404/expression-template-implementation-in-rust-like-in-boostyap
+
+    xpr https://github.com/joergbrech/xpr
