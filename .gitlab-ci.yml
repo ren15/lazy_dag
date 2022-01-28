@@ -14,10 +14,14 @@ build_debian:
     - echo $SHELL
     - lscpu && free -h && df -h
     - cat /etc/*release
-    - bash ci/prepare_deb.sh
+    - echo "---------------------------------"
+    - bash ci/deb_install.sh
+    - bash ci/setup_gbench.sh
+    - echo "---------------------------------"
     - make configure
     - make build
     - make run
+    - make bench
     - rustc --version
     - cd et_rust && cargo bench | grep time
     - rustup install nightly
