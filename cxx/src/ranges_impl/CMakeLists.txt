@@ -4,6 +4,8 @@ range_lazy_prime.cpp
 )
 target_link_libraries(${target_name}
 ${CONAN_LIBS}
+${BENCHMARK_LIBRARY}
+pthread
 )
 
 # ===============================================================================
