@@ -9,6 +9,13 @@ between creating DAG with
 - Lazy string concatenation
     Functional Programming in C++
 
+## TODO:
+
+1. DRY on compiler selection in scripts.
+2. expression_template using ranges.
+
+
+
 
 ## tools to use 
 

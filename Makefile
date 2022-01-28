@@ -21,8 +21,8 @@ configure:
 		-G Ninja
 
 	## Make clangd work	
-	ln -f -s ../${BUILD_DIR}/compile_commands.json \
-		${SOURCE_DIR}/src/compile_commands.json
+	ln -f -s ${BUILD_DIR}/compile_commands.json \
+		${SOURCE_DIR}/compile_commands.json
 
 build:
 	cmake --build ${BUILD_DIR} -j
