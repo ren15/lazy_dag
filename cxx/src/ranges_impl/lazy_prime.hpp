@@ -1,12 +1,12 @@
-#include "range/v3/view/reverse.hpp"
-#include <algorithm>
 #include <range/v3/all.hpp>
 
+#include <algorithm>
 #include <vector>
 
 namespace lazy_prime {
 
 namespace views = ranges::views;
+namespace actions = ranges::actions;
 
 template <typename T>
 auto get_prime_vec(T start, int cnt) -> std::vector<T>
@@ -25,15 +25,15 @@ auto get_prime_vec(T start, int cnt) -> std::vector<T>
     result.reserve(cnt);
 
     for (auto i : views::iota(start)
-            | views::filter(odd)
             | views::filter(isPrime)
-            | views::take(cnt)
-            | views::reverse) {
+            | views::filter(odd)
+            | views::take(cnt)) {
         result.push_back(i);
     }
+    ranges::reverse(result);
     return result;
-    // return std::move(result);
 }
+
 template <typename T>
 auto get_prime_vec_eager(T start, int cnt) -> std::vector<T>
 {

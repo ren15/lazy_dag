@@ -94,25 +94,23 @@
 static void BM_lazyprime(benchmark::State& state)
 {
     uint64_t start = 1000000;
-    int cnt = 2000;
+    int cnt = state.range(0);
     for (auto _ : state) {
         auto ans = lazy_prime::get_prime_vec(start, cnt);
-        assert(*(ans.begin()) == 1027163);
         benchmark::DoNotOptimize(ans);
     }
 }
-BENCHMARK(BM_lazyprime);
+BENCHMARK(BM_lazyprime)->RangeMultiplier(4)->Range(64, 1 << 12);
 
 static void BM_lazyprime_eager(benchmark::State& state)
 {
     uint64_t start = 1000000;
-    int cnt = 2000;
+    int cnt = state.range(0);
     for (auto _ : state) {
         auto ans = lazy_prime::get_prime_vec_eager(start, cnt);
-        assert(*(ans.begin()) == 1027163);
         benchmark::DoNotOptimize(ans);
     }
 }
-BENCHMARK(BM_lazyprime_eager);
+BENCHMARK(BM_lazyprime_eager)->RangeMultiplier(4)->Range(64, 1 << 12);
 
 BENCHMARK_MAIN();
