@@ -7,9 +7,10 @@ SOURCE_DIR=${REPO_DIR}/cxx
 help:
 	echo "Check Makefile"
 
-configure:
+setup_gbench:
 	bash ci/setup_gbench.sh
 
+configure:
 	cmake -E make_directory ${BUILD_DIR}
 
 	conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
@@ -27,10 +28,12 @@ build:
 	cmake --build ${BUILD_DIR} -j
 	
 run: 
-	${BUILD_DIR}/bin/mathop_bench
-	${BUILD_DIR}/bin/dag_bench
 	${BUILD_DIR}/bin/dag_range
 	${BUILD_DIR}/bin/ranges_impl_1
+bench:
+	${BUILD_DIR}/bin/mathop_bench
+	${BUILD_DIR}/bin/dag_bench
+
 
 git_clone_AAD:
 	git clone https://github.com/asavine/CompFinance.git
