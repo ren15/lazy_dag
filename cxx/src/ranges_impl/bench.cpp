@@ -97,6 +97,7 @@ static void BM_lazyprime(benchmark::State& state)
     int cnt = 2000;
     for (auto _ : state) {
         auto ans = lazy_prime::get_prime_vec(start, cnt);
+        assert(*(ans.begin()) == 1027163);
         benchmark::DoNotOptimize(ans);
     }
 }
@@ -108,6 +109,7 @@ static void BM_lazyprime_eager(benchmark::State& state)
     int cnt = 2000;
     for (auto _ : state) {
         auto ans = lazy_prime::get_prime_vec_eager(start, cnt);
+        assert(*(ans.begin()) == 1027163);
         benchmark::DoNotOptimize(ans);
     }
 }

@@ -1,3 +1,5 @@
+#include "range/v3/view/reverse.hpp"
+#include <algorithm>
 #include <range/v3/all.hpp>
 
 #include <vector>
@@ -22,8 +24,11 @@ auto get_prime_vec(T start, int cnt) -> std::vector<T>
     auto result = std::vector<T> {};
     result.reserve(cnt);
 
-    for (auto i : views::iota(start) | views::filter(odd)
-            | views::filter(isPrime) | views::take(cnt)) {
+    for (auto i : views::iota(start)
+            | views::filter(odd)
+            | views::filter(isPrime)
+            | views::take(cnt)
+            | views::reverse) {
         result.push_back(i);
     }
     return result;
@@ -54,7 +59,7 @@ auto get_prime_vec_eager(T start, int cnt) -> std::vector<T>
                 break;
         }
     }
+    std::reverse(result.begin(), result.end());
     return result;
-    // return std::move(result);
 }
 };
