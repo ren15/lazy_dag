@@ -20,19 +20,19 @@ add_executable(dag_bench
 bench.cpp
 )
 
-target_include_directories(dag_bench
-BEFORE PRIVATE "${BENCHMARK_FOLDER}/include"
-)
 
-target_link_libraries(dag_bench
-${CONAN_LIBS}
-${BENCHMARK_LIBRARY}
+target_link_libraries(dag_bench PRIVATE
+benchmark::benchmark benchmark::benchmark_main
 pthread
 )
+
 
 add_executable(dag_range
 dag_range.cpp
 )
+
+
 target_link_libraries(dag_range
-${CONAN_LIBS}
+PRIVATE range-v3 range-v3-meta range-v3::meta range-v3-concepts
+fmt::fmt
 )
