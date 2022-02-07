@@ -7,11 +7,10 @@ SOURCE_DIR=${REPO_DIR}/cxx
 help:
 	echo "Check Makefile"
 
-setup_gbench:
-	bash ci/setup_gbench.sh
-
 configure:
 	cmake -E make_directory ${BUILD_DIR}
+
+	conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
 
 	cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
 		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
@@ -19,7 +18,6 @@ configure:
 		-DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake \
 		-G Ninja
 
-	## Make clangd work	
 	ln -f -s ${BUILD_DIR}/compile_commands.json \
 		${SOURCE_DIR}/compile_commands.json
 

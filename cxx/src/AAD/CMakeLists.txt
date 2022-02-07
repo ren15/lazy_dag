@@ -31,8 +31,6 @@ add_executable(dag_range
 dag_range.cpp
 )
 
-
-target_link_libraries(dag_range
-PRIVATE range-v3 range-v3-meta range-v3::meta range-v3-concepts
-fmt::fmt
+target_link_libraries(dag_range PRIVATE 
+${CONAN_LIBS}
 )
