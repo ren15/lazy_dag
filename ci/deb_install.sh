@@ -1,17 +1,16 @@
 set -xe
-
 export DEBIAN_FRONTEND=noninteractive
+
 apt-get update 
+
 apt-get install -y \
-    git \
     build-essential \
-    python3 \
-    python3-pip \
+    python3 python3-pip \
     ninja-build \
+    cmake \
     make \
     gcc \
-    clang \
-    clang-tidy \
-    cmake 
-
-pip install conan
+    clang clang-tidy clangd \
+    curl zip unzip tar \
+    pkg-config \
+    git
