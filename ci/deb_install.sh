@@ -15,4 +15,6 @@ apt-get install -y \
     pkg-config \
     git
 
+pip install conan
+
 curl https://sh.rustup.rs -sSf | sh -s -- -y
