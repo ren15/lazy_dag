@@ -8,8 +8,7 @@ env:
 jobs:
   run:
     runs-on: ubuntu-20.04
-    container: debian:sid
-
+    container: debian:11
     steps:
       - uses: actions/checkout@v2
 
@@ -19,8 +18,9 @@ jobs:
           bash ci/vcpkg_setup.sh
 
       - name: Compile and Run
+        shell: bash
         run: |
-          PATH="$HOME/.cargo/bin:$PATH"
+          source $HOME/.cargo/env
           make configure
           make build
           make run
