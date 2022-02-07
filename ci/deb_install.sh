@@ -14,3 +14,5 @@ apt-get install -y \
     curl zip unzip tar \
     pkg-config \
     git
+
+curl https://sh.rustup.rs -sSf | sh -s -- -y
