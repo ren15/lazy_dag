@@ -30,7 +30,7 @@ run:
 bench:
 	${BUILD_DIR}/bin/mathop_bench
 	${BUILD_DIR}/bin/dag_bench
-
+	${BUILD_DIR}/bin/ranges_impl_bench
 
 git_clone_AAD:
 	git clone https://github.com/asavine/CompFinance.git
