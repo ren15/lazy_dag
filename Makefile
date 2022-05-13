@@ -1,26 +1,15 @@
 .PHONY: $(MAKECMDGOALS)
 
-REPO_DIR=${PWD}
-BUILD_DIR=${REPO_DIR}/cxx/cmake-build-debug
-SOURCE_DIR=${REPO_DIR}/cxx
+export REPO_DIR=${PWD}
+export BUILD_DIR=${REPO_DIR}/cxx/cmake-build-debug
+export SOURCE_DIR=${REPO_DIR}/cxx
+export CMAKE_PREFIX_DIR=${REPO_DIR}/cmake_prefix
 
 help:
 	echo "Check Makefile"
 
 configure:
-	cmake -E make_directory ${BUILD_DIR}
-
-	conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
-
-	cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
-		-DCMAKE_CXX_COMPILER=gcc \
-		-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
-		-DCMAKE_BUILD_TYPE=Release \
-		-DCMAKE_PREFIX_PATH=${REPO_DIR}/benchmark/build \
-		-G Ninja
-
-	ln -f -s ${BUILD_DIR}/compile_commands.json \
-		${SOURCE_DIR}/compile_commands.json
+	bash ci/setup_cmake_projects.sh
 
 build:
 	cmake --build ${BUILD_DIR} -j

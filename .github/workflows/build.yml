@@ -15,6 +15,7 @@ jobs:
       - name: Distro setup
         run: |
           bash ci/deb_install.sh
+          bash ci/download_dep.sh
           bash ci/setup_cmake_projects.sh
 
       - name: Compile and Run
