@@ -1,7 +1,13 @@
 mkdir -p ${PWD}/.conan
-docker run --rm \
+
+if [[ -z "${GITHUB_ACTIONS}" ]]; then
+    echo "Not in CI, use docker run -it"
+    DOCKER_IT_ARG="-it"
+fi
+
+docker run --rm ${DOCKER_IT_ARG} \
     --privileged \
-    --hostname repo_env \
+    --hostname cpp_env \
     --user $(id -u):$(id -g) \
     --net=host \
     -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro \

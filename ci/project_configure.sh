@@ -8,7 +8,7 @@ mkdir -p /home/$(whoami)/.conan/
 conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
 
 cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
-	-DCMAKE_CXX_COMPILER=clang++ \
+	-DCMAKE_CXX_COMPILER=${CXX} \
 	-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_DIR} \
