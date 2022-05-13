@@ -1,4 +1,8 @@
 set -xe
+
+mkdir -p /home/${USER}
+chown $UID_i:$GID_i /home/${USER}
+
 export DEBIAN_FRONTEND=noninteractive
 
 if [[ -z "${GITHUB_ACTIONS}" ]]; then
@@ -20,7 +24,7 @@ apt-get install -y \
     clang clang-tidy clangd \
     curl zip unzip tar \
     pkg-config \
-    git \
+    git zsh \
     1>/dev/null
 
 
