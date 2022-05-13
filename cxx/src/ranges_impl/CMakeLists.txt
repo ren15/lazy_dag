@@ -6,7 +6,7 @@ range_lazy_prime.cpp
 
 target_link_libraries(${target_name} PRIVATE 
 ${CONAN_LIBS}
-range-v3
+# range-v3
 pthread
 )
 
@@ -18,7 +18,7 @@ ranges_example.cpp
 
 target_link_libraries(ranges_impl_1 PRIVATE 
 ${CONAN_LIBS}
-range-v3
+# range-v3
 )
 
 # =============================================================================

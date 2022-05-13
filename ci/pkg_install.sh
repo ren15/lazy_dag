@@ -7,7 +7,7 @@ if [[ -z "${CI_i}" ]]; then
     sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 fi
 
-apt-get update 
+apt-get update 1>/dev/null
 
 apt-get install -y \
     sudo \
@@ -20,15 +20,16 @@ apt-get install -y \
     clang clang-tidy clangd \
     curl zip unzip tar \
     pkg-config \
-    git
+    git \
+    1>/dev/null
 
 
 if [[ -z "${CI_i}" ]]; then
     echo "Not in CI, using China mirror"
-    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple conan
+    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple conan 1>/dev/null
 else
     echo "in CI, install directly"
-    pip install conan
+    pip install conan 1>/dev/null
 fi
 
 
