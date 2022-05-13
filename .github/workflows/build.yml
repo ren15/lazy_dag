@@ -13,12 +13,11 @@ jobs:
 
       - name: Build docker 
         run: |
-          make docker_build
+          bash ci/docker_build.sh
           chmod +x ci/run_in_docker.sh
 
       - name: Build dep
         run: |
-          ci/run_in_docker.sh make dep_download
           ci/run_in_docker.sh make dep_build
 
       - name: Build

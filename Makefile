@@ -9,13 +9,11 @@ export DEP_DIR=${REPO_DIR}/vendor
 help:
 	echo "Check Makefile"
 
-dep_download:
-	bash ci/dep_download.sh
 dep_build:
 	bash ci/dep_build.sh
 
 configure:
-	bash ci/setup_cmake_projects.sh
+	bash ci/project_configure.sh
 
 build:
 	cmake --build ${BUILD_DIR} -j
@@ -31,6 +29,3 @@ bench:
 clean:
 	rm -rf ${BUILD_DIR}
 	rm -rf ${DEP_DIR}
-
-docker_build:
-	bash ci/docker_build.sh
