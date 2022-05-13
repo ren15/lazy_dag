@@ -2,13 +2,6 @@
 #include "vec.hpp"
 
 #include <fmt/core.h>
-#include <range/v3/all.hpp>
-
-#include <iostream>
-#include <utility>
-#include <vector>
-
-void ranges_example();
 
 void vec_usage()
 {

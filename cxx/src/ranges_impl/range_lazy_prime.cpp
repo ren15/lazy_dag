@@ -2,7 +2,6 @@
 #include <range/v3/all.hpp>
 
 #include <iostream>
-#include <numeric>
 #include <vector>
 
 namespace views = ranges::views;
