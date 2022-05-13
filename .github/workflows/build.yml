@@ -8,27 +8,27 @@ env:
 jobs:
   run:
     runs-on: ubuntu-20.04
-    container: debian:11
     steps:
       - uses: actions/checkout@v2
 
-      - name: Distro setup
+      - name: Build docker 
         run: |
-          bash ci/pkg_install.sh
+          make docker_build
+          chmod +x ci/run_in_docker.sh
 
       - name: Build dep
         run: |
-          make dep_download
-          make dep_build
+          ci/run_in_docker.sh make dep_download
+          ci/run_in_docker.sh make dep_build
 
       - name: Build
         shell: bash
         run: |
-          make configure
-          make build
+          ci/run_in_docker.sh make configure
+          ci/run_in_docker.sh make build
 
       - name: Run and bench
         shell: bash
         run: |
-          make run
-          make bench
+          ci/run_in_docker.sh make run
+          ci/run_in_docker.sh make bench

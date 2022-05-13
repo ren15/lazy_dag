@@ -30,3 +30,7 @@ bench:
 
 clean:
 	rm -rf ${BUILD_DIR}
+	rm -rf ${DEP_DIR}
+
+docker_build:
+	bash ci/docker_build.sh

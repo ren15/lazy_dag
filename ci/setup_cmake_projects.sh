@@ -1,7 +1,10 @@
+
 # setup main project
 cd ${REPO_DIR}
 cmake -E make_directory ${BUILD_DIR}
 
+mkdir -p /home/$(whoami)/.conan/
+conan profile update settings.compiler.libcxx=libstdc++11 default
 conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
 
 cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \

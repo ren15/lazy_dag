@@ -2,6 +2,7 @@ temp
 .ipynb*
 .clangd
 .DS_Store
+.conan
 dist
 
 vendor
