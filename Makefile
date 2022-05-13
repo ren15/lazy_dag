@@ -8,6 +8,11 @@ export CMAKE_PREFIX_DIR=${REPO_DIR}/cmake_prefix
 help:
 	echo "Check Makefile"
 
+dep_download:
+	bash ci/dep_download.sh
+dep_build:
+	bash ci/dep_build.sh
+
 configure:
 	bash ci/setup_cmake_projects.sh
 
@@ -21,9 +26,6 @@ bench:
 	${BUILD_DIR}/bin/mathop_bench
 	${BUILD_DIR}/bin/dag_bench
 	${BUILD_DIR}/bin/ranges_impl_bench
-
-git_clone_AAD:
-	git clone https://github.com/asavine/CompFinance.git
 
 clean:
 	rm -rf ${BUILD_DIR}

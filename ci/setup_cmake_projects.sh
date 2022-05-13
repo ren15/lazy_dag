@@ -1,14 +1,3 @@
-# setup gbench 
-cd benchmark
-cmake -E make_directory "build"
-cmake -DCMAKE_BUILD_TYPE=Release \
-    -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on \
-	-DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_DIR} \
-    -S . -B "build" 
-cmake --build "build" --config Release -j
-cd build
-cmake --install . --prefix ${CMAKE_PREFIX_DIR} 
-
 # setup main project
 cd ${REPO_DIR}
 cmake -E make_directory ${BUILD_DIR}

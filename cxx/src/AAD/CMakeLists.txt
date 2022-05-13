@@ -32,5 +32,6 @@ dag_range.cpp
 )
 
 target_link_libraries(dag_range PRIVATE 
-${CONAN_LIBS}
+fmt
+range-v3
 )

@@ -14,15 +14,21 @@ jobs:
 
       - name: Distro setup
         run: |
-          bash ci/deb_install.sh
-          bash ci/download_dep.sh
-          bash ci/setup_cmake_projects.sh
+          bash ci/pkg_install.sh
 
-      - name: Compile and Run
+      - name: Build dep
+        run: |
+          bash ci/dep_download.sh
+          bash ci/dep_build.sh
+
+      - name: Build
         shell: bash
         run: |
-          source $HOME/.cargo/env
           make configure
           make build
+
+      - name: Run and bench
+        shell: bash
+        run: |
           make run
           make bench

@@ -15,6 +15,7 @@ set(CMAKE_USE_PTHREADS_INIT 1)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 find_package(benchmark CONFIG REQUIRED)
+find_package(range-v3 CONFIG REQUIRED)
 
 add_subdirectory(src/math_op_bench)
 
