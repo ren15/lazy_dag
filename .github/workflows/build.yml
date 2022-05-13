@@ -18,8 +18,8 @@ jobs:
 
       - name: Build dep
         run: |
-          bash ci/dep_download.sh
-          bash ci/dep_build.sh
+          make dep_download
+          make dep_build
 
       - name: Build
         shell: bash
