@@ -3,11 +3,10 @@ temp
 .clangd
 .DS_Store
 dist
+
+vendor
 build
 cmake_prefix
-
-CompFinance/
-benchmark/
 
 ## Editor directories and files
 .idea

@@ -4,6 +4,7 @@ export REPO_DIR=${PWD}
 export BUILD_DIR=${REPO_DIR}/cxx/cmake-build-debug
 export SOURCE_DIR=${REPO_DIR}/cxx
 export CMAKE_PREFIX_DIR=${REPO_DIR}/cmake_prefix
+export DEP_DIR=${REPO_DIR}/vendor
 
 help:
 	echo "Check Makefile"
