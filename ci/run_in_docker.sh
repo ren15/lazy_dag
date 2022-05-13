@@ -1,5 +1,5 @@
 mkdir -p ${PWD}/.conan
-docker run --rm -it\
+docker run --rm \
     --privileged \
     --hostname repo_env \
     --user $(id -u):$(id -g) \
