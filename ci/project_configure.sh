@@ -4,11 +4,11 @@ cd ${REPO_DIR}
 cmake -E make_directory ${BUILD_DIR}
 
 mkdir -p /home/$(whoami)/.conan/
-conan profile update settings.compiler.libcxx=libstdc++11 default
+# conan profile update settings.compiler.libcxx=libc++ default
 conan install ${SOURCE_DIR} --build=missing -if=${BUILD_DIR} 
 
 cmake -S ${SOURCE_DIR} -B ${BUILD_DIR} \
-	-DCMAKE_CXX_COMPILER=g++ \
+	-DCMAKE_CXX_COMPILER=clang++ \
 	-DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_DIR} \

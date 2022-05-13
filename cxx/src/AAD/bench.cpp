@@ -4,6 +4,7 @@
 
 #include <benchmark/benchmark.h>
 
+#include <array>
 #include <cassert>
 #include <iostream>
 
