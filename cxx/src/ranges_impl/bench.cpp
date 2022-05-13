@@ -2,7 +2,6 @@
 #include "vec.hpp"
 
 #include <benchmark/benchmark.h>
-#include <bits/stdint-uintn.h>
 #include <cstdio>
 #include <fmt/core.h>
 #include <range/v3/all.hpp>

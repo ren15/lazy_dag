@@ -1,7 +1,7 @@
 .PHONY: $(MAKECMDGOALS)
 
 REPO_DIR=${PWD}
-BUILD_DIR=${REPO_DIR}/build
+BUILD_DIR=${REPO_DIR}/cxx/cmake-build-debug
 SOURCE_DIR=${REPO_DIR}/cxx
 
 help:
