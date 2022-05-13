@@ -1,7 +1,7 @@
 set -xe
 export DEBIAN_FRONTEND=noninteractive
 
-if [[ -z "${CI_i}" ]]; then
+if [[ -z "${GITHUB_ACTIONS}" ]]; then
     echo "Not in CI, setting China mirror"
     sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
     sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
@@ -24,7 +24,7 @@ apt-get install -y \
     1>/dev/null
 
 
-if [[ -z "${CI_i}" ]]; then
+if [[ -z "${GITHUB_ACTIONS}" ]]; then
     echo "Not in CI, using China mirror"
     pip install -i https://pypi.tuna.tsinghua.edu.cn/simple conan 1>/dev/null
 else
