@@ -8,8 +8,8 @@ namespace lazy_prime {
 namespace views = ranges::views;
 namespace actions = ranges::actions;
 
-template <typename T>
-auto get_prime_vec(T start, int cnt) -> std::vector<T>
+template <typename T,typename K>
+auto get_prime_vec(T start, K cnt) -> std::vector<T>
 {
     auto isPrime = [](auto i) {
         for (auto j = 2; j * j <= i; ++j) {
