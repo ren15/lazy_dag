@@ -1,8 +1,8 @@
 stages:          
   - build
 
-build_debian:       
-  image: rust:1.58.0
+build_ubuntu:       
+  image: ubuntu:20.04
   stage: build
   timeout: 30 minutes
   tags:
@@ -12,17 +12,10 @@ build_debian:
       - build
   script:
     - echo $SHELL
-    - lscpu && free -h && df -h
-    - cat /etc/*release
-    - echo "---------------------------------"
-    - bash ci/deb_install.sh
-    - bash ci/setup_gbench.sh
-    - echo "---------------------------------"
+    - lscpu
+    - bash ci/pkg_install.sh
+    - make dep_build
     - make configure
     - make build
     - make run
     - make bench
-    - rustc --version
-    - cd et_rust && cargo bench | grep time
-    - rustup install nightly
-    - cargo +nightly bench | grep time
