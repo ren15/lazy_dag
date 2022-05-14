@@ -15,19 +15,20 @@ jobs:
         run: |
           bash ci/docker_build.sh
           chmod +x ci/run_in_docker.sh
+          sudo bash ci/pkg_install.sh
 
       - name: Build dep
         run: |
-          ci/run_in_docker.sh make dep_build
+          make dep_build
 
       - name: Build
         shell: bash
         run: |
-          ci/run_in_docker.sh make configure
-          ci/run_in_docker.sh make build
+          make configure
+          make build
 
       - name: Run and bench
         shell: bash
         run: |
-          ci/run_in_docker.sh make run
-          ci/run_in_docker.sh make bench
+          make run
+          make bench
