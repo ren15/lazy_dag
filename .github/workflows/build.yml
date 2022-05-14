@@ -2,6 +2,8 @@ name: ci
 
 on: push
 
+runs-on: self-hosted
+
 env:
   DEBIAN_FRONTEND: noninteractive
 
