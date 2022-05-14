@@ -2,14 +2,12 @@ name: ci
 
 on: push
 
-runs-on: self-hosted
-
 env:
   DEBIAN_FRONTEND: noninteractive
 
 jobs:
   build_container:
-    runs-on: ubuntu-20.04
+    runs-on: Linux,self-hosted
     steps:
       - uses: actions/checkout@v2
 
