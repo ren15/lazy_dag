@@ -21,6 +21,7 @@ apt-get install -y \
     git zsh \
     1>/dev/null
 
+apt-get clean && rm -rf /var/lib/apt/lists/*
 
 pip install conan 1>/dev/null
 
