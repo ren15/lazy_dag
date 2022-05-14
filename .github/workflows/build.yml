@@ -6,16 +6,25 @@ env:
   DEBIAN_FRONTEND: noninteractive
 
 jobs:
+  build_container:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test container building
+        run: |
+          bash ci/docker_build.sh
+
   run:
     runs-on: ubuntu-20.04
+    container:
+      image: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
 
       - name: Build docker 
         run: |
-          bash ci/docker_build.sh
-          chmod +x ci/run_in_docker.sh
-          sudo bash ci/pkg_install.sh
+          bash ci/pkg_install.sh
 
       - name: Build dep
         run: |
