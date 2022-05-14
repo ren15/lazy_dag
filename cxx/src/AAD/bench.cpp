@@ -20,19 +20,19 @@ static void BM_pointer(benchmark::State& state)
 }
 BENCHMARK(BM_pointer);
 
-static void BM_template(benchmark::State& state)
-{
-    using DAG_tape::f;
-    using DAG_tape::Number;
+// static void BM_template(benchmark::State& state)
+// {
+//     using DAG_tape::f;
+//     using DAG_tape::Number;
 
-    Number x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
-    Number y = f(x);
+//     Number x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+//     Number y = f(x);
 
-    for (auto _ : state) {
-        benchmark::DoNotOptimize(y.getVal());
-    }
-}
-BENCHMARK(BM_template);
+//     for (auto _ : state) {
+//         benchmark::DoNotOptimize(y.getVal());
+//     }
+// }
+// BENCHMARK(BM_template);
 
 static void BM_handwritten(benchmark::State& state)
 {

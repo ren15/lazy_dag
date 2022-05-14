@@ -1,3 +1,5 @@
+#include <fmt/core.h>
+
 #include <cmath>
 #include <iostream>
 #include <memory>
@@ -190,6 +192,7 @@ Number log(Number arg)
 template <class T>
 T f(T x[5])
 {
+    fmt::print("Here");
     auto y1 = x[2] * (5.0 * x[0] + x[1]);
     auto y2 = log(y1);
     auto y = (y1 + x[3] * y2) * (y1 + y2);

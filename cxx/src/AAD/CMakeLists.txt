@@ -7,6 +7,9 @@ dag_pointer.cpp
 add_executable(dag_tape
 dag_tape.cpp
 )
+target_link_libraries(dag_tape PRIVATE
+${CONAN_LIBS}
+)
 
 add_executable(dag_template
 dag_template.cpp
@@ -24,6 +27,7 @@ bench.cpp
 target_link_libraries(dag_bench PRIVATE
 benchmark::benchmark benchmark::benchmark_main
 pthread
+${CONAN_LIBS}
 )
 
 
@@ -32,7 +36,6 @@ dag_range.cpp
 )
 
 target_link_libraries(dag_range PRIVATE 
-fmt
 range-v3
 ${CONAN_LIBS}
 )
