@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Check builder
+        run: |
+          lscpu
+          free -h 
+          df -h
+
       - name: Test container building
         run: |
           bash ci/docker_build.sh
@@ -21,6 +27,12 @@ jobs:
       image: ubuntu:20.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Check builder
+        run: |
+          lscpu
+          free -h 
+          df -h
 
       - name: Build docker 
         run: |
