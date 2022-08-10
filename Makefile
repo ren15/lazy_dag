@@ -24,8 +24,8 @@ run:
 	${BUILD_DIR}/bin/ranges_impl_1
 bench:
 	${BUILD_DIR}/bin/mathop_bench
-	${BUILD_DIR}/bin/dag_bench
 	${BUILD_DIR}/bin/ranges_impl_bench
+	${BUILD_DIR}/bin/dag_bench
 
 clean:
 	rm -rf ${BUILD_DIR}

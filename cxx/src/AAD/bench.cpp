@@ -43,7 +43,7 @@ static void BM_handwritten(benchmark::State& state)
 
     auto x = std::array<double, 5>();
     for (int i = 0; i < 5; i++) {
-        x[i] = v[i];
+        *(x.begin()+i) = *(v.begin()+i);
     }
 
     for (auto _ : state) {

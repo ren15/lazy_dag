@@ -1,8 +1,8 @@
 #pragma once
 
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 namespace RangeImpl {
 using std::vector;
