@@ -6,7 +6,7 @@ env:
   DEBIAN_FRONTEND: noninteractive
 
 jobs:
-  build_container:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -17,23 +17,8 @@ jobs:
           free -h 
           df -h
 
-      - name: Test container building
-        run: |
-          bash ci/docker_build.sh
-
-  run:
-    runs-on: ubuntu-20.04
-    container:
-      image: ubuntu:20.04
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Check builder
-        run: |
-          lscpu
-          free -h 
-          df -h
-
-      - name: Build docker 
+      - name: Build in docker 
         run: |
           bash ci/build_in_docker.sh
+      
+
