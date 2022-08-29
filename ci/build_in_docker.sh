@@ -1,5 +1,5 @@
 mkdir -p app
-sudo rm -rf app/*
+# sudo rm -rf app/*
 sudo chmod g+s app
 
 rsync -ah ./ app --exclude "app"
