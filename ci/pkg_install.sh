@@ -18,3 +18,16 @@ apt-get install -y \
     git zsh
 
 pip install conan 
+
+# install mold
+mkdir /dep_build
+pushd /dep_build
+git clone https://github.com/rui314/mold.git
+cd mold
+git checkout v1.4.1
+bash install-build-deps.sh
+make -j$(nproc) CXX=clang++
+make install
+popd
+
+

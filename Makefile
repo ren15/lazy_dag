@@ -14,7 +14,7 @@ configure:
 	bash ci/project_configure.sh
 
 build:
-	cmake --build ${BUILD_DIR} -j
+	mold -run cmake --build ${BUILD_DIR} -j
 	
 run: 
 	${BUILD_DIR}/bin/dag_range
