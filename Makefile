@@ -7,9 +7,6 @@ export CMAKE_PREFIX_DIR=${REPO_DIR}/cmake_prefix
 export DEP_DIR=${REPO_DIR}/vendor
 export CXX=clang++
 
-help:
-	echo "Check Makefile"
-
 dep_build:
 	bash ci/dep_build.sh
 

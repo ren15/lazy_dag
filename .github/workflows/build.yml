@@ -36,20 +36,4 @@ jobs:
 
       - name: Build docker 
         run: |
-          bash ci/pkg_install.sh
-
-      - name: Build dep
-        run: |
-          make dep_build
-
-      - name: Build
-        shell: bash
-        run: |
-          make configure
-          make build
-
-      - name: Run and bench
-        shell: bash
-        run: |
-          make run
-          make bench
+          bash ci/build_in_docker.sh
