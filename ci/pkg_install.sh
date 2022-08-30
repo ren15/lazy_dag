@@ -26,7 +26,7 @@ git clone https://github.com/rui314/mold.git
 cd mold
 git checkout v1.4.1
 bash install-build-deps.sh
-make -j$(nproc) CXX=clang++
+make -j$(nproc) CXX=clang++ CC=clang
 make install
 popd
 
