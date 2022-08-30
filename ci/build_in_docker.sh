@@ -9,6 +9,7 @@ docker build -t cpp_env:latest .
 docker run --rm \
     -v ${PWD}/app:/app \
     -w /app \
+    -m 6g \
     cpp_env:latest \
     bash -c "
     which mold
