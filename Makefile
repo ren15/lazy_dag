@@ -5,7 +5,8 @@ export BUILD_DIR=${REPO_DIR}/cxx/cmake-build-debug
 export SOURCE_DIR=${REPO_DIR}/cxx
 export CMAKE_PREFIX_DIR=${REPO_DIR}/cmake_prefix
 export DEP_DIR=${REPO_DIR}/vendor
-export CXX=clang++
+export CXX=g++
+export CC=gcc
 
 dep_build:
 	bash ci/dep_build.sh
