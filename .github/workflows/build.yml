@@ -17,8 +17,21 @@ jobs:
           free -h 
           df -h
 
-      - name: Build in docker 
+      - name: Docker build
         run: |
-          bash ci/build_in_docker.sh
+          bash ci/docker_build.sh
+
+      - name: Dep build
+        run: |
+          bash ci/docker_run_0_dep_build.sh
+
+      - name: Build
+        run: |
+          bash ci/docker_run_1_build.sh
+
+      - name: Run
+        run: |
+          bash ci/docker_run_2_run.sh
+        
       
 

@@ -11,7 +11,7 @@ dep_build:
 	bash ci/dep_build.sh
 
 configure:
-	bash ci/project_configure.sh
+	bash ci/configure.sh
 
 build:
 	mold -run cmake --build ${BUILD_DIR} -j
