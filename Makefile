@@ -8,6 +8,9 @@ export DEP_DIR=${REPO_DIR}/vendor
 export CXX=g++
 export CC=gcc
 
+help:
+	echo "help"
+
 dep_build:
 	bash ci/dep_build.sh
 
