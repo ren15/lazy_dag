@@ -1,3 +1,3 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 COPY ci/pkg_install.sh /build/pkg_install.sh
 RUN bash /build/pkg_install.sh
